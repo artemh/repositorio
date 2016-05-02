@@ -29,9 +29,12 @@ GetOptions(
   "checksums", "loglevel=s",
 );
 
+my $home_dir = $ENV{'HOME'};
+
 my @config_file_locations = (
-  "./repositorio.conf", "/etc/rex/repositorio.conf",
-  "/usr/local/etc/rex/repositorio.conf",
+  "$home_dir/.repositorio.conf",
+  "$home_dir/.config/repositorio/repositorio.conf",
+  "/etc/repositorio/repositorio.conf"
 );
 
 my ($config_file) = grep { -f $_ } @config_file_locations;
